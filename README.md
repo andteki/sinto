@@ -5,6 +5,10 @@ Simple project management, with the Browser-sync and gulp packages in the backgr
 * Development in the src directory.
 * Publishing from the public directory.
 
+GitHub:
+
+* [https://github.com/andteki/sinto.git](https://github.com/andteki/sinto.git)
+
 ## Install
 
 ```cmd
