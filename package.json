@@ -1,6 +1,6 @@
 {
   "name": "sinto",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Website project development manager",
   "bin": {
     "sin": "sin.js"
@@ -20,5 +20,9 @@
     "web",
     "project",
     "minify"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andteki/sinto.git"
+  }
 }
