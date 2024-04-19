@@ -1,0 +1,24 @@
+{
+  "name": "sinto",
+  "version": "1.2.1",
+  "description": "Website project development manager",
+  "bin": {
+    "sin": "sin.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sallai András",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^3.0.2",
+    "fs-extra": "^11.2.0",
+    "gulp": "^5.0.0",
+    "yargs": "^17.7.2"
+  },
+  "keywords": [
+    "web",
+    "project",
+    "minify"
+  ]
+}
