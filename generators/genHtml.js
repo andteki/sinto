@@ -15,7 +15,7 @@ const htmlContent = `
       <h1>Sinto Project</h1>
       <p>This is a default index.html file, which was created by the sin command.</p>
     </div>
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>
 

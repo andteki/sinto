@@ -15,8 +15,11 @@ const packageContent =
       "browser-sync": "^3.0.2",
       "gulp": "^5.0.0",
       "gulp-clean-css": "^4.3.0",
-      "gulp-uglify": "^3.0.2"      
-    }
+      "gulp-concat": "^2.6.1",
+      "gulp-minify": "^3.1.0",
+      "gulp-replace": "^1.1.4"
+    },
+    "type": "module"
 }
 
 module.exports = packageContent;
