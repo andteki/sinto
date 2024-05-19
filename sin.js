@@ -7,6 +7,7 @@ const cli = require('./cli');
 const serve = require('./server');
 const { createApi } = require('./haiserver/apigen');
 const { createWebpack } = require('./webpack/generate');
+const { createPuppeteerTest } = require('./gentest/generate');
 
 const { 
   createDirectory, 
@@ -57,6 +58,7 @@ cli.command('build', 'Start build with gulp', {}, build);
 cli.command('rmno', 'Delete node_modules directory', {}, rmno);
 cli.command('api', 'REST API with hai-server', {}, createApi);
 cli.command('webpack', 'Webpack client', {}, createWebpack);
+cli.command('pup', 'Puppeteer test', {}, createPuppeteerTest);
 
 const main = () => {
   argv = cli.parse();
