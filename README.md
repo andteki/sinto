@@ -57,6 +57,7 @@ This command is generate public directory from src directory.
 * sin build - Start public generation
 * sin api - Generate fake REST API with hai-server
 * sin webpack - Generate Webpack project
+* sin pup - Generate Puppeteer test with Mocha
 
 The Default task manager is gulp. Development serve is browser-sync.
 
@@ -107,4 +108,39 @@ app01/
   |-package.json
   |-README.md
   `-webpack.config.js
+```
+
+## Puppeteer test with Mocha
+
+The sin pup command generate a Puppeteer test with Mocha default test file.
+
+Using:
+
+```cmd
+sin pup
+npm install --save-dev puppeteer mocha
+```
+
+Generated directories and files:
+
+```txt
+app01/
+  `-test/
+      `-apptest.js
+```
+
+Add to package.json file a script:
+
+```json
+{
+  "scripts": {
+    "test": "mocha"
+  }
+}
+```
+
+Run the test:
+
+```cmd
+npm test
 ```
