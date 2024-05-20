@@ -24,7 +24,7 @@ mkdir app01
 cd app01
 ```
 
-Generate default directories and files:
+Generate default web directories and files:
 
 ```cmd
 sin init
@@ -58,6 +58,7 @@ This command is generate public directory from src directory.
 * sin api - Generate fake REST API with hai-server
 * sin webpack - Generate Webpack project
 * sin pup - Generate Puppeteer test with Mocha
+* sin rmno - Delete node_modules directory
 
 The Default task manager is gulp. Development serve is browser-sync.
 
@@ -112,16 +113,18 @@ app01/
 
 ## Puppeteer test with Mocha
 
-The sin pup command generate a Puppeteer test with Mocha default test file.
+The **sin pup** command generate a Puppeteer test with Mocha default test file.
+
+The **sin pup** command does not install the dependencies, it just writes them into the package.json file. Install the dependencies with the **npm i** or **pnpm i** command.
 
 Using:
 
 ```cmd
 sin pup
-npm install --save-dev puppeteer mocha
+npm i
 ```
 
-Generated directories and files:
+Generated directoriy and file:
 
 ```txt
 app01/
@@ -129,17 +132,23 @@ app01/
       `-apptest.js
 ```
 
-Add to package.json file a script:
+Automatically adds the test script and dependencies to the package.json file.
 
 ```json
 {
   "scripts": {
     "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^x.y.z",
+    "puppeteer": "^x.y.z"    
   }
 }
 ```
 
-Run the test:
+The version numbers are updated.
+
+Write the tests in test directory and run the tests:
 
 ```cmd
 npm test

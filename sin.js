@@ -1,70 +1,69 @@
 #!/usr/bin/env node
 
-const {debug} = require('./config.json')
-const { exec } = require('child_process');
-
-const cli = require('./cli');
-const serve = require('./server');
+const { Command } = require('commander');
+const { createWeb } = require('./genweb/genweb');
+const { server } = require('./startserver/server');
+const { build } = require('./build/build');
+const { rmno } = require('./rmno/rmno');
 const { createApi } = require('./haiserver/apigen');
 const { createWebpack } = require('./webpack/generate');
-const { createPuppeteerTest } = require('./gentest/generate');
+const { createPuppeteerTest } = require('./gentest/generate')
 
-const { 
-  createDirectory, 
-  createFile, 
-  createPackageJsonFile, 
-  createIndexHtmlFile, 
-  createGulpfileJsFile, 
-  createBsconfigFile 
-} = require('./tools/tools');
+const program = new Command();
 
+program
+    .name('sin')
+    .description('Project handler')
+    .version('1.4.0');
 
-const init = () => {
-  const currentDirectory = process.cwd();
+program
+    .command('init')
+    .description('Initialize the web project')
+    .action(() => {
+        createWeb();
+    });
 
-  createDirectory(`${currentDirectory}/src`);
-  createDirectory(`${currentDirectory}/assets`);
+program
+    .command('serve')
+    .description('Start develop server')
+    .option('-p, --port [port]', 'Server port number')
+    .action((options) => {
+        server(options);
+    });
 
-  createFile(`${currentDirectory}/src/style.css`, '');  
-  createFile(`${currentDirectory}/src/app.js`, '');
-  createFile(`${currentDirectory}/README.md`, '# Sinto Project');
-  
-  createPackageJsonFile(currentDirectory);
-  createIndexHtmlFile(currentDirectory);
-  createGulpfileJsFile(currentDirectory);
-  createBsconfigFile(currentDirectory);
+program
+    .command('build')
+    .description('Start build with Gulp')
+    .action(() => {
+        build();
+    });
 
-  console.log('Base directories and files created.');
-};
+program
+    .command('rmno')
+    .description('Delete node_modules directory')
+    .action(() => {
+        rmno();
+    });
 
-const build = (argv) => {
-  exec('npx gulp')
-}
+program
+    .command('api')
+    .description('REST API with hai-server')
+    .action(() => {
+        createApi();
+    });
 
-const rmno = (argv) => {
-  console.log('Not implemented...')
-}
+program
+    .command('webpack')
+    .description('Webpack client')
+    .action(() => {
+        createWebpack();
+    });
 
-const serverOptions = (yargs) => {
-  return yargs.option('p', {
-    alias: 'port',
-    describe: 'Server port number'
-  })
-}
+program
+    .command('pup')
+    .description('Puppeteer test')
+    .action(() => {
+        createPuppeteerTest();
+    })
 
-cli.command('init', 'Initilize the project', {}, init);
-cli.command('serve', 'Start develop server', serverOptions, serve);
-cli.command('build', 'Start build with gulp', {}, build);
-cli.command('rmno', 'Delete node_modules directory', {}, rmno);
-cli.command('api', 'REST API with hai-server', {}, createApi);
-cli.command('webpack', 'Webpack client', {}, createWebpack);
-cli.command('pup', 'Puppeteer test', {}, createPuppeteerTest);
-
-const main = () => {
-  argv = cli.parse();
-  if (!argv._[0]) {
-    console.log('Használja a "sin init" vagy a "sin serve" parancsot!');
-  }
-};
-
-main();
+program.parse();

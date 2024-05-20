@@ -29,10 +29,11 @@ const serve = (argv) => {
     readConfigFile(configFilePath, (error, config) => {
       if(error) {
         console.error('Error! The configuration file cannot be read!')
+        console.error(error)
         return;
       }
       initializeServer(argv, config)
     })
 };
 
-module.exports = serve;
+module.exports.server = serve;
