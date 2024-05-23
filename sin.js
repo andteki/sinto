@@ -7,7 +7,8 @@ const { build } = require('./build/build');
 const { rmno } = require('./rmno/rmno');
 const { createApi } = require('./haiserver/apigen');
 const { createWebpack } = require('./webpack/generate');
-const { createPuppeteerTest } = require('./gentest/generate')
+const { createPuppeteerTest } = require('./gentest/generate');
+const { supplementTypescript } = require('./gents/gents');
 
 const program = new Command();
 
@@ -62,8 +63,16 @@ program
 program
     .command('pup')
     .description('Puppeteer test')
-    .action(() => {
-        createPuppeteerTest();
+    .action(async () => {
+        await createPuppeteerTest();
     })
+
+program
+    .command('ts')
+    .description('Supplement with TypeScript')
+    .action(() => {
+        supplementTypescript();
+    })
+
 
 program.parse();
