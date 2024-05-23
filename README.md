@@ -59,6 +59,7 @@ This command is generate public directory from src directory.
 * sin webpack - Generate Webpack project
 * sin pup - Generate Puppeteer test with Mocha
 * sin rmno - Delete node_modules directory
+* sin ts - Generate tsconfig.json and add dependencies
 
 The Default task manager is gulp. Development serve is browser-sync.
 
@@ -152,4 +153,17 @@ Write the tests in test directory and run the tests:
 
 ```cmd
 npm test
+```
+
+## TypeScript config and dependencies
+
+The **sin ts** command generate a config.json and add dependencies.
+
+The **sin ts** command does not install the dependencies, it just writes them into the package.json file. Install the dependencies with the **npm i** or **pnpm i** command.
+
+Using:
+
+```cmd
+sin ts
+npm i
 ```
