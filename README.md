@@ -157,13 +157,14 @@ npm test
 
 ## TypeScript config and dependencies
 
-The **sin ts** command generate a config.json and add dependencies.
+The **sin ts** command generate a tsconfig.json and add dependencies to package.json.
 
 The **sin ts** command does not install the dependencies, it just writes them into the package.json file. Install the dependencies with the **npm i** or **pnpm i** command.
 
 Using:
 
 ```cmd
+sin init
 sin ts
 npm i
 ```
