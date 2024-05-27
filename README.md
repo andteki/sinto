@@ -60,6 +60,7 @@ This command is generate public directory from src directory.
 * sin pup - Generate Puppeteer test with Mocha
 * sin rmno - Delete node_modules directory
 * sin ts - Generate tsconfig.json and add dependencies
+* sin web - Generate HTML and empty CSS files
 
 The Default task manager is gulp. Development serve is browser-sync.
 

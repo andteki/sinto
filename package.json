@@ -1,6 +1,6 @@
 {
   "name": "sinto",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Website project development manager",
   "bin": {
     "sin": "sin.js"
