@@ -16,7 +16,7 @@ const createWeb = () => {
     const currentDirectory = process.cwd();
   
     createDirectory(`${currentDirectory}/src`);
-    createDirectory(`${currentDirectory}/assets`);
+    createDirectory(`${currentDirectory}/src/assets`);
   
     createFile(`${currentDirectory}/src/style.css`, '');  
     createFile(`${currentDirectory}/src/app.js`, '');
