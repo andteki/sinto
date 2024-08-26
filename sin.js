@@ -7,6 +7,7 @@ const { build } = require('./build/build');
 const { rmno } = require('./rmno/rmno');
 const { createApi } = require('./haiserver/apigen');
 const { createWebpack } = require('./webpack/generate');
+const { createEsbuildProject } = require('./esbuild/generate');
 const { createPuppeteerTest } = require('./gentest/generate');
 const { supplementTypescript } = require('./gents/gents');
 const { createIndexHtmlCssFile } = require('./htmlcss/htmlcss');
@@ -16,7 +17,7 @@ const program = new Command();
 program
     .name('sin')
     .description('Project handler')
-    .version('1.6.1');
+    .version('1.7.0');
 
 program
     .command('init')
@@ -81,5 +82,12 @@ program
     .action(() => {
         createIndexHtmlCssFile();
     })
+
+program
+    .command('esbuild')
+    .description('ESBuild client')
+    .action(() => {
+        createEsbuildProject();
+    });
 
 program.parse();

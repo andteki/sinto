@@ -61,6 +61,7 @@ This command is generate public directory from src directory.
 * sin rmno - Delete node_modules directory
 * sin ts - Generate tsconfig.json and add dependencies
 * sin web - Generate HTML and empty CSS files
+* sin esbuild - Generate esbuild project
 
 The Default task manager is gulp. Development serve is browser-sync.
 
@@ -169,3 +170,47 @@ sin init
 sin ts
 npm i
 ```
+
+## ESBuild project generator
+
+The sin esbuild command generate a esbuild project.
+
+Using:
+
+```cmd
+sin esbuild
+pnpm i
+pnpm dev
+pnpm start
+```
+
+Generated directories and files:
+
+```txt
+app01/
+  |-public/
+  |  |-index.html
+  |  `-style.css
+  |-src/
+  |  `-index.js
+  |-package.json
+  `-README.md
+```
+
+Update the src/app.ts your index file.
+
+Example:
+
+* src/app.ts
+* src/index.ts
+* src/app.js
+* src/index.js
+* src/script.js
+
+To build production run next command:
+
+```cmd
+pnpm build
+```
+
+This command is generate dist directory from src directory. The build command not copy the public directory.
