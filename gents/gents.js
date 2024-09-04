@@ -1,12 +1,17 @@
-const tsconfigContent = require('./tsconfigContent');
+const {debug} = require('../config.json');
+const tsconfigContent = require('./tsconfigContent.js');
 const { createFile } = require('../tools/tools.js');
 const jsonfile = require('jsonfile');
-const { addDevDep } = require('../tools/dep.js');
+const { addDevDep, addScript } = require('../tools/dep.js');
+const fs = require('fs');
+const { createWeb } = require('../genweb/genweb');
+const defaultTsPackageContent = require('./tsPackageContent.js');
 
-const supplementTypescript = () => {
-    writeConfigFile();
-    showMsg();
-    addDependencies();
+const initTypescriptProject = async () => {
+  createWeb('ts');
+  createPackageJsonFile(process.cwd());
+  writeConfigFile();
+  showMsg();
 }
 
 const writeConfigFile = () => {
@@ -16,21 +21,19 @@ const writeConfigFile = () => {
 }
 
 const showMsg = () => {
-    console.log(`
-Proposal:
-In the tsconfig.json file, leave the module value
-at commonjs for a NodeJS project. In the case of 
-an ES project, rewrite it to, for example, ES6.
+    console.log(`TypeScript project initialized.
+Install dependencies with npm or pnpm command:
 
-Install dependencies:
 pnpm install
         `);
 }
 
-const addDependencies = () => {
-    const dir = process.cwd();
-    const path = `${dir}/package.json`;
-    addDevDep(path, ['typescript']);
+const createPackageJsonFile = (dir) => {
+  const packageJsonPath = `${dir}/package.json`;
+  jsonfile.writeFileSync(packageJsonPath, defaultTsPackageContent, { spaces: 2 });
+  if(debug) {
+      console.log('package.json file created.');
+  }        
 }
 
-module.exports.supplementTypescript = supplementTypescript;
+module.exports.initTypescriptProject = initTypescriptProject;

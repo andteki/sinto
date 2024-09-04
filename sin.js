@@ -9,7 +9,8 @@ const { createApi } = require('./haiserver/apigen');
 const { createWebpack } = require('./webpack/generate');
 const { createEsbuildProject } = require('./esbuild/generate');
 const { createPuppeteerTest } = require('./gentest/generate');
-const { supplementTypescript } = require('./gents/gents');
+const { supplementTypescript } = require('./addts/addts');
+const { initTypescriptProject } = require('./gents/gents');
 const { createIndexHtmlCssFile } = require('./htmlcss/htmlcss');
 
 const program = new Command();
@@ -17,11 +18,11 @@ const program = new Command();
 program
     .name('sin')
     .description('Project handler')
-    .version('1.7.0');
+    .version('1.8.0');
 
 program
     .command('init')
-    .description('Initialize the web project')
+    .description('Initialize the Node.js web project')
     .action(() => {
         createWeb();
     });
@@ -70,11 +71,19 @@ program
     })
 
 program
-    .command('ts')
+    .command('addts')
     .description('Supplement with TypeScript')
     .action(() => {
         supplementTypescript();
     })
+
+program
+    .command('ts')
+    .description('Initialize TypeScript Node.js project')
+    .action(() => {
+        initTypescriptProject();
+    })
+
 
 program
     .command('web')

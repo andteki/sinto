@@ -31,6 +31,7 @@ async function readJsonFile(filePath) {
 }
 
 async function addDependencies(obj, packageNames, devDep) {
+    console.log(`Adding dependencies...`);
     for(const packageName of packageNames) {
         try {
             const newDependency = await getPackageInfo(packageName);
@@ -65,7 +66,8 @@ async function writeJsonFile(path, obj) {
     try {
         await jsonfile.writeFile(path, obj, { spaces: 2});
         if(debug) {
-            console.log(`Added new depencies`);
+            console.log(`Written new JSON file: ${path}`);
+            console.log(obj);
         }
     } catch (err) {
         console.error('Error! Failed to write package.json:');

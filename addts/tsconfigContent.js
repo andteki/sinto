@@ -10,5 +10,4 @@ const tsconfigContent =
     }
 }
 
-
 module.exports = tsconfigContent;

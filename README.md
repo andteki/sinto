@@ -157,18 +157,47 @@ Write the tests in test directory and run the tests:
 npm test
 ```
 
-## TypeScript config and dependencies
+## TypeScript
 
-The **sin ts** command generate a tsconfig.json and add dependencies to package.json.
+### TypeScript config and dependencies
 
-The **sin ts** command does not install the dependencies, it just writes them into the package.json file. Install the dependencies with the **npm i** or **pnpm i** command.
+The **sin addts** command generate a tsconfig.json and add dependencies to package.json.
+
+The **sin addts** command does not install the dependencies, it just writes them into the package.json file. Install the dependencies with the **npm i** or **pnpm i** command.
 
 Using:
 
 ```cmd
 sin init
+sin addts
+npm i
+```
+
+### TypeScript Node.js project
+
+The **sin ts** command generate a TypeScript Node.js project.
+
+Using:
+
+```cmd
 sin ts
 npm i
+```
+
+Generated directories and files:
+
+```txt
+app01/
+  |-src/
+  |  |-assets/
+  |  |-app.ts
+  |  |-index.html
+  |  `-style.css
+  |-bs-config.json
+  |-gulpfile.js  
+  |-package.json
+  |-README.md
+  `-tsconfig.json  
 ```
 
 ## ESBuild project generator
