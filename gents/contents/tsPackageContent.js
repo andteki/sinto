@@ -17,6 +17,8 @@ const packageTsContent =
       "gulp": "^5.0.0",
       "gulp-clean-css": "^4.3.0",
       "gulp-concat": "^2.6.1",
+      "gulp-image": "^6.3.1",
+      "gulp-minify": "^3.1.0",
       "gulp-uglify": "^3.0.2",
       "gulp-replace": "^1.1.4",
       "gulp-typescript": "6.0.0-alpha.1"

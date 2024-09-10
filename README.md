@@ -55,11 +55,12 @@ This command is generate public directory from src directory.
 * sin init - Initilalize the project
 * sin serve - Start development server
 * sin build - Start public generation
+* sin rmno - Delete node_modules directory
 * sin api - Generate fake REST API with hai-server
 * sin webpack - Generate Webpack project
 * sin pup - Generate Puppeteer test with Mocha
-* sin rmno - Delete node_modules directory
-* sin ts - Generate tsconfig.json and add dependencies
+* sin addts - Generate tsconfig.json and add dependencies
+* sin ts - Initialize TypeScript Node.js project
 * sin web - Generate HTML and empty CSS files
 * sin esbuild - Generate esbuild project
 

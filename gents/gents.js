@@ -1,15 +1,14 @@
 const {debug} = require('../config.json');
-const tsconfigContent = require('./tsconfigContent.js');
+const tsconfigContent = require('./contents/tsconfigContent.js');
 const { createFile } = require('../tools/tools.js');
 const jsonfile = require('jsonfile');
 const { addDevDep, addScript } = require('../tools/dep.js');
 const fs = require('fs');
-const { createWeb } = require('../genweb/genweb');
-const defaultTsPackageContent = require('./tsPackageContent.js');
+const { createTsWeb } = require('./generators/genTsWeb.js');
+const defaultTsPackageContent = require('./contents/tsPackageContent.js');
 
 const initTypescriptProject = async () => {
-  createWeb('ts');
-  createPackageJsonFile(process.cwd());
+  createTsWeb();
   writeConfigFile();
   showMsg();
 }
@@ -26,14 +25,6 @@ Install dependencies with npm or pnpm command:
 
 pnpm install
         `);
-}
-
-const createPackageJsonFile = (dir) => {
-  const packageJsonPath = `${dir}/package.json`;
-  jsonfile.writeFileSync(packageJsonPath, defaultTsPackageContent, { spaces: 2 });
-  if(debug) {
-      console.log('package.json file created.');
-  }        
 }
 
 module.exports.initTypescriptProject = initTypescriptProject;
