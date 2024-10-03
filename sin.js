@@ -12,13 +12,14 @@ const { createPuppeteerTest } = require('./gentest/generate');
 const { supplementTypescript } = require('./addts/addts');
 const { initTypescriptProject } = require('./gents/gents');
 const { createIndexHtmlCssFile } = require('./htmlcss/htmlcss');
+const { createJavafxProject } = require('./javafx/generate');
 
 const program = new Command();
 
 program
     .name('sin')
     .description('Project handler')
-    .version('1.8.1');
+    .version('1.9.0');
 
 program
     .command('init')
@@ -84,7 +85,6 @@ program
         initTypescriptProject();
     })
 
-
 program
     .command('web')
     .description('HTML és üres CSS fájl')
@@ -98,5 +98,13 @@ program
     .action(() => {
         createEsbuildProject();
     });
+
+program
+    .command('javafx')
+    .description('JavaFX project No build tools')
+    .option('-p, --path [path]', 'Path to javafx')
+    .action(( options ) => {
+        createJavafxProject(options);
+    })
 
 program.parse();

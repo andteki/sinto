@@ -1,7 +1,7 @@
 {
   "name": "sinto",
-  "version": "1.8.1",
-  "description": "Website project development manager",
+  "version": "1.9.0",
+  "description": "Project development manager for web and JavaFX",
   "bin": {
     "sin": "sin.js"
   },
@@ -15,6 +15,7 @@
     "commander": "^12.1.0",
     "fs-extra": "^11.2.0",
     "gulp": "^5.0.0",
+    "hjson": "^3.2.2",
     "jsonfile": "^6.1.0",
     "yargs": "^17.7.2"
   },

@@ -1,9 +1,6 @@
-# Sinto web project management
+# Sinto project management
 
-Simple project management, with the Browser-sync and gulp packages in the background.
-
-* Development in the src directory.
-* Publishing from the public directory.
+A generateable web application using JavaScirpt and TypeScript, and a JavaFX form application for VSCode.
 
 GitHub:
 
@@ -63,12 +60,13 @@ This command is generate public directory from src directory.
 * sin ts - Initialize TypeScript Node.js project
 * sin web - Generate HTML and empty CSS files
 * sin esbuild - Generate esbuild project
+* sin javafx - Generate JavaFX project
 
-The Default task manager is gulp. Development serve is browser-sync.
+For web application, the default task manager is gulp. Development serve is browser-sync.
 
 ## Fake REST API server
 
-The sin api command generate fake REST API project directory.
+The sin api command generate fake REST API project directory with hai-server.
 
 Using:
 
@@ -244,3 +242,22 @@ pnpm build
 ```
 
 This command is generate dist directory from src directory. The build command not copy the public directory.
+
+## JavaFX project generator
+
+The **sin javafx** command generate a JavaFX project. The generated project willl be a package generated with **No build tools** for VSCode.
+
+Steps to use:
+
+* Create project directory. For example: **mkdir app01**
+* Change directory to project directory. For example: **cd app01**
+* Create a JavaFX project with the **sin javafx** command.
+* Copy to lib dirctory JavaFX libraries.
+* Open project directory with VSCode: code .
+* Add Configuration with VSCode: **Run** > **Add Configuration..**
+* Save the .vscode/launch.json file.
+* Run project with VSCode: **Run** > **Run** This will fail.
+* Set the JavaFX path. For example: **sin javafx -p lib/javafx**
+* Open the mainScedne.fmxl file, and add components, and save.
+
+Change the path to your JavaFX path.
