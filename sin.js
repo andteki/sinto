@@ -12,14 +12,13 @@ const { createPuppeteerTest } = require('./gentest/generate');
 const { supplementTypescript } = require('./addts/addts');
 const { initTypescriptProject } = require('./gents/gents');
 const { createIndexHtmlCssFile } = require('./htmlcss/htmlcss');
-const { createJavafxProject } = require('./javafx/generate');
 
 const program = new Command();
 
 program
     .name('sin')
     .description('Project handler')
-    .version('1.9.0');
+    .version('1.10.0');
 
 program
     .command('init')
@@ -95,8 +94,10 @@ program
 program
     .command('esbuild')
     .description('ESBuild client')
-    .action(() => {
-        createEsbuildProject();
+    .option('-j, --javascript', 'JavaScript application')
+    .option('-t, --typescript', 'TypeScript application (default)')
+    .action((options) => {
+        createEsbuildProject(options);
     });
 
 program

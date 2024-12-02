@@ -1,6 +1,6 @@
 {
   "name": "sinto",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "description": "Project development manager for web and JavaFX",
   "bin": {
     "sin": "sin.js"

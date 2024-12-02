@@ -207,9 +207,31 @@ Using:
 
 ```cmd
 sin esbuild
-pnpm i
-pnpm dev
-pnpm start
+npm i
+npm run dev
+npm start
+```
+
+Generated directories and files:
+
+```txt
+app01/
+  |-public/
+  |  |-index.html
+  |  `-style.css
+  |-src/
+  |  `-index.ts
+  |-package.json
+  `-README.md
+```
+
+Or, create JavaScript client:
+
+```cmd
+sin esbuild -j
+npm i
+npm run dev
+npm start
 ```
 
 Generated directories and files:
@@ -225,20 +247,18 @@ app01/
   `-README.md
 ```
 
-Update the src/app.ts your index file.
+To development run next command:
 
-Example:
+```cmd
+npm run dev
+```
 
-* src/app.ts
-* src/index.ts
-* src/app.js
-* src/index.js
-* src/script.js
+This command is generate in public directory an app.js file from src directory.
 
 To build production run next command:
 
 ```cmd
-pnpm build
+npm run build
 ```
 
 This command is generate dist directory from src directory. The build command not copy the public directory.
