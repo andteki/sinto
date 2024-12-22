@@ -18,7 +18,7 @@ const program = new Command();
 program
     .name('sin')
     .description('Project handler')
-    .version('1.10.1');
+    .version('1.10.2');
 
 program
     .command('init')
