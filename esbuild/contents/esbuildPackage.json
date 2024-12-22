@@ -6,7 +6,7 @@
   "test": "echo \"Error: no test specified\" && exit 1",
   "start": "browser-sync start --config bs-config.json",
   "preview": "browser-sync start --server dist",
-  "dev": "npx esbuild src/**/.ts --outdir=public --bundle --watch",
+  "dev": "npx esbuild src/**/*.ts --outdir=public --bundle --watch",
   "build:src": "npx esbuild src/app.ts --outdir=dist --bundle --minify",
   "build:htmlcss": "cpx public/**/*.{html,css,png} dist",
   "build:bscss": "cpx node_modules/bootstrap/dist/css/bootstrap.css dist",
