@@ -53,10 +53,13 @@ This command is generate public directory from src directory.
 * sin serve - Start development server
 * sin build - Start public generation
 * sin rmno - Delete node_modules directory
-* sin api - Generate fake REST API with hai-server
+* sin api - Adding fake REST API with hai-server
+* sin pup - Adding Puppeteer test with Mocha
+
+Standalone server generators:
+
 * sin webpack - Generate Webpack project
-* sin pup - Generate Puppeteer test with Mocha
-* sin ts - Initialize TypeScript Node.js project
+* sin ts - Generate TypeScript Node.js project
 * sin web - Generate HTML and empty CSS files
 * sin esbuild - Generate esbuild project
 
@@ -81,34 +84,6 @@ app01/
   |-hai-server.json
   |-package.json
   `-README.md
-```
-
-## Webpack project generator
-
-The sin webpack command generate a webpack project.
-
-Using:
-
-```cmd
-sin webpack
-npm i
-```
-
-Generated directories and files:
-
-```txt
-app01/
-  |-assets/
-  |-dist/
-  |  `-index.html
-  |-src/
-  |  |-js/
-  |  |  `-index.js
-  |  `-scss/
-  |     `-style.scss
-  |-package.json
-  |-README.md
-  `-webpack.config.js
 ```
 
 ## Puppeteer test with Mocha
@@ -154,23 +129,35 @@ Write the tests in test directory and run the tests:
 npm test
 ```
 
-## TypeScript
+## Webpack project generator
 
-### TypeScript config and dependencies
-
-The **sin addts** command generate a tsconfig.json and add dependencies to package.json.
-
-The **sin addts** command does not install the dependencies, it just writes them into the package.json file. Install the dependencies with the **npm i** or **pnpm i** command.
+The sin webpack command generate a webpack project.
 
 Using:
 
 ```cmd
-sin init
-sin addts
+sin webpack
 npm i
 ```
 
-### TypeScript Node.js project
+Generated directories and files:
+
+```txt
+app01/
+  |-assets/
+  |-dist/
+  |  `-index.html
+  |-src/
+  |  |-js/
+  |  |  `-index.js
+  |  `-scss/
+  |     `-style.scss
+  |-package.json
+  |-README.md
+  `-webpack.config.js
+```
+
+## TypeScript
 
 The **sin ts** command generate a TypeScript Node.js project.
 
@@ -260,22 +247,3 @@ npm run build
 ```
 
 This command is generate dist directory from src directory. The build command not copy the public directory.
-
-## JavaFX project generator
-
-The **sin javafx** command generate a JavaFX project. The generated project willl be a package generated with **No build tools** for VSCode.
-
-Steps to use:
-
-* Create project directory. For example: **mkdir app01**
-* Change directory to project directory. For example: **cd app01**
-* Create a JavaFX project with the **sin javafx** command.
-* Copy to lib dirctory JavaFX libraries.
-* Open project directory with VSCode: code .
-* Add Configuration with VSCode: **Run** > **Add Configuration..**
-* Save the .vscode/launch.json file.
-* Run project with VSCode: **Run** > **Run** This will fail.
-* Set the JavaFX path. For example: **sin javafx -p lib/javafx**
-* Open the mainScedne.fmxl file, and add components, and save.
-
-Change the path to your JavaFX path.
