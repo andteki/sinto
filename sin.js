@@ -9,7 +9,6 @@ const { createApi } = require('./haiserver/apigen');
 const { createWebpack } = require('./webpack/generate');
 const { createEsbuildProject } = require('./esbuild/generate');
 const { createPuppeteerTest } = require('./gentest/generate');
-const { supplementTypescript } = require('./addts/addts');
 const { initTypescriptProject } = require('./gents/gents');
 const { createIndexHtmlCssFile } = require('./htmlcss/htmlcss');
 
@@ -18,7 +17,7 @@ const program = new Command();
 program
     .name('sin')
     .description('Project handler')
-    .version('1.10.2');
+    .version('1.11.0');
 
 program
     .command('init')
@@ -71,13 +70,6 @@ program
     })
 
 program
-    .command('addts')
-    .description('Supplement with TypeScript')
-    .action(() => {
-        supplementTypescript();
-    })
-
-program
     .command('ts')
     .description('Initialize TypeScript Node.js project')
     .action(() => {
@@ -98,14 +90,6 @@ program
     .option('-t, --typescript', 'TypeScript application (default)')
     .action((options) => {
         createEsbuildProject(options);
-    });
-
-program
-    .command('javafx')
-    .description('JavaFX project No build tools')
-    .option('-p, --path [path]', 'Path to javafx')
-    .action(( options ) => {
-        createJavafxProject(options);
     })
 
 program.parse();

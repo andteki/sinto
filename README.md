@@ -56,11 +56,9 @@ This command is generate public directory from src directory.
 * sin api - Generate fake REST API with hai-server
 * sin webpack - Generate Webpack project
 * sin pup - Generate Puppeteer test with Mocha
-* sin addts - Generate tsconfig.json and add dependencies
 * sin ts - Initialize TypeScript Node.js project
 * sin web - Generate HTML and empty CSS files
 * sin esbuild - Generate esbuild project
-* sin javafx - Generate JavaFX project
 
 For web application, the default task manager is gulp. Development serve is browser-sync.
 
